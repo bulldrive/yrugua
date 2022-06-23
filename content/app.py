@@ -9,12 +9,13 @@ def well_come():
 
 @app.route("/get_variable")
 def get_variable():
-    varyr = False
     varyr = os.environ.get("VARYRUGUA")
-    if varyr:
+    if varyr == '500':
+        return "Wrong environment! (value is 500)"
+    elif varyr:
         return varyr
     else:
-        return "500"
+        return '500'
 
 @app.route("/healthy")
 def healthy():

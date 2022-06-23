@@ -7,7 +7,7 @@ metadata:
     app: {{ .Release.Name }}-webapp
 data:
   VARYRUGUA: "MY_ENVIRONMENT_VARIABLE"
-
+immutable: false
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -20,6 +20,7 @@ data:
       listen 80;
 
       location / {
-        proxy_pass http://10.111.111.145:9003;
+        proxy_pass http://srv-back:9003;
       }
     }
+immutable:  false

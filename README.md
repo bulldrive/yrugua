@@ -17,8 +17,6 @@
 4. How to deploy it to kubernetes
   - the first way (kubectl)
     * kubectl apply -f k8s/
-    * curl http://[EXTERNAL-IP]
-    * curl http://[EXTERNAL-IP]/get_variable
-    * curl http://[EXTERNAL-IP]/healthy
   - the second way (helm)
     * cd yrugua; helm install yrugua . -f values.yaml --namespace yrugua
+Application accessable inside Kubernetes as http://microservice and outside as http://[external-ip]

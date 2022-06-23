@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
@@ -8,12 +9,12 @@ def well_come():
 
 @app.route("/get_variable")
 def get_variable():
-    try:
-        VARYRUGUA
-        #VARYRUGUA = "MY_ENVIRONMENT_VARIABLE"
-    except NameError:
+    varyr = False
+    varyr = os.environ.get("VARYRUGUA")
+    if varyr:
+        return varyr
+    else:
         return "500"
-    return VARYRUGUA
 
 @app.route("/healthy")
 def healthy():

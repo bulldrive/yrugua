@@ -12,10 +12,10 @@ echo $DOCKERHUB/$IMGNAME:$TAG
 echo "***********************"
 
 # Stop the previous container
-docker stop $(docker ps --format '{{.Names}}')
+# docker stop $(docker ps --format '{{.Names}}')
 
 # Remove all inactive containers
-docker rm $(docker ps -aq)
+# docker rm $(docker ps -aq)
 
 # Run the built container
 docker run -d -p 9003:9003 $DOCKERHUB/$IMGNAME:$TAG

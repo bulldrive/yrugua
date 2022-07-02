@@ -13,9 +13,12 @@
     * curl localhost:9003 (reply is: try "/get_variable" or "/healthy")
   - the second way
     * you can use the script dockerbuild.sh
-3. skiped
-4. How to deploy it to kubernetes
-  - the first way (kubectl)
+3. Test for the function
+  - export VARYRUGUA="MY_ENVIRONMENT_VARIABLE"; printenv | grep VARYRUGUA; pytest content/
+  - export VARYRUGUA="500"; printenv | grep VARYRUGUA; pytest content/
+  - unset VARYRUGUA; printenv | grep VARYRUGUA; pytest content/
+5. How to deploy it to kubernetes
+  - the first way (kubectl)export VARYRUGUA="MY_ENVIRONMENT_VARIABLE"; printenv | grep VARYRUGUA; pytest 
     * kubectl apply -f k8s/
   - the second way (helm)
     * cd yrugua; helm install yrugua . -f values.yaml --namespace yrugua

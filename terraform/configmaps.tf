@@ -16,6 +16,6 @@ resource "kubernetes_config_map_v1" "proxy" {
     namespace = "${var.ns-vol}"
   }
   data = {
-    "nginx-proxy-cm.yaml" = "${file("nginx-proxy-cm.yaml")}"
+    "default" = "${file("nginx.conf")}"
   }
 }

@@ -42,27 +42,9 @@ resource "kubernetes_deployment_v1" "proxy" {
           volume_mount {
             name = "proxyconf"
             mount_path = "/etc/nginx/sites-available"
-            sub_path   = ""
-          }
-          #env_from {
-          #  config_map_ref {
-          #    name = kubernetes_config_map_v1.proxy.metadata.0.name
-          #  }
-          #}
-          liveness_probe {
-            http_get {
-              path = "/"
-              port = 80
-
-              http_header {
-                name  = "X-Custom-Header"
-                value = "Awesome"
-              }
-            }
-            initial_delay_seconds = 3
-            period_seconds        = 3
           }
         }
+        restart_policy = "Always"
         volume {
           name = "proxyconf"
           config_map {
